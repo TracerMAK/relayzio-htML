@@ -1,3 +1,5 @@
+package com.relayzio.kotlin.common
+
 import java.io.Serializable
 
 /**

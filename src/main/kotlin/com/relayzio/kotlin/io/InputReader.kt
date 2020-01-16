@@ -1,4 +1,7 @@
+package com.relayzio.kotlin.io
+
 import java.io.Closeable
+import com.relayzio.kotlin.common.Result
 
 /**
  * Provides methods for the reading data from various input sources such as
