@@ -5,12 +5,11 @@ import kotlin.test.assertTrue
 import kotlin.test.Test
 
 import com.relayzio.kotlin.common.Result
-import com.relayzio.kotlin.io.FileReader
+import com.relayzio.kotlin.io.HtmlReader
 import com.relayzio.kotlin.io.InputReader
 
-class FileReaderTest {
-    val path = "target\\classes\\test1.txt"
-    val path2 = "target\\classes\\notfound.txt"
+class HtmlReaderTest {
+    val badPortUrl = "http://example.com:-80/"
     
     fun processResult(result: Result<InputReader>, msgExpected: String): Unit {
         var msg = ""
@@ -19,15 +18,9 @@ class FileReaderTest {
         assertEquals(msgExpected, msg)
     }
     
-    @Test fun fileExists() : Unit {
-         val result = FileReader(path)
-         processResult(result, "Success")
-    }
-    
-    @Test fun fileNotExists() : Unit {
-        val result = FileReader(path2)
-        processResult(result, "Failure")
-     }
-
+    @Test fun malformedURL() : Unit {
+         val result = HtmlReader(badPortUrl)
+         processResult(result, "Failure")
+    }   
 }
                        

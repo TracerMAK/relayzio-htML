@@ -23,8 +23,7 @@ open class FileReader (protected val reader: BufferedReader) :
         } catch (e: Exception) {
             Result.failure(e)
         }
-        
-        
+
     }
 }
                        
