@@ -28,6 +28,14 @@ class FileReaderTest {
         val result = FileReader(path2)
         processResult(result, "Failure")
      }
-
+     
+    @Test fun readOneLine(): Unit {
+        val firstLine = FileReader(path).flatMap {
+            reader -> reader.use { reader.readString() }
+        }.map { pair -> pair.first }.getOrElse({""})
+        
+        println("First line of test1.txt => ${firstLine}")
+        assertEquals("Hello", firstLine)
+    }
 }
                        
